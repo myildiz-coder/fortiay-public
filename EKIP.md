@@ -56,4 +56,4 @@ Sağlı sollu (her markaya eşit mesafede), doğrudan, agresif ama her zaman do�
 
 ## Durum
 
-Anasayfa ekibi (Sorumlu + Yardımcı) ve 3 öncelikli masa (Telefon, Yapay Zekâ, İncelemeler) yardımcı editörle güçlendirildi. Telefon masasında ilk gerçek haber yayında, aynı haber `gunluk.html`'deki günlük akışta da yer alıyor. Diğer masalar tek editörle, boş (0 haber) durumda ve gerçek gelişme bekliyor.
+Anasayfa ekibi (Sorumlu + Yardımcı) ve 3 öncelikli masa (Telefon, Yapay Zekâ, İncelemeler) yardımcı editörle güçlendirildi. Telefon, Yapay Zekâ, Bilgisayar ve Tablet masalarında birer gerçek, kaynağı doğrulanmış haber yayında (toplam 4 haber); tümü `gunluk.html`'deki günlük akışta masa etiketiyle birlikte yer alıyor, en önemli 3'ü ise anasayfadaki "Öne Çıkanlar" bölümüne taşındı. Giyilebilir, İncelemeler ve Fırsatlar masaları henüz boş (0 haber) durumda ve gerçek gelişme bekliyor — zorlama yok, sakin gün normaldir.
