@@ -136,7 +136,7 @@ main{max-width:1180px; margin:0 auto; padding:36px 20px 64px;}
 .aside-title:hover{color:var(--accent);}
 .aside-all{margin-top:18px; font-size:11px; font-weight:800; color:var(--turquoise); text-transform:uppercase; letter-spacing:.06em;}
 .aside-all:hover{color:var(--accent);}
-.manset-panel{display:none; padding:30px; gap:28px;}
+.manset-panels .manset-panel{display:none; padding:30px; gap:28px;}
 .manset-panel .dispatch-visual{flex:0 0 320px; height:220px;}
 .manset-panel .dispatch-headline{font-size:28px;}
 #manset-1:checked ~ .manset-layout .manset-panels #panel-1,
