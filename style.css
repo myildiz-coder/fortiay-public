@@ -366,6 +366,7 @@ a.dispatch-source:hover{color:var(--signal);}
 .lab-tile .lt-points{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px;}
 .lab-tile .lt-points li{font-family:var(--serif); font-size:11.5px; color:var(--muted); display:flex; align-items:flex-start; gap:6px; line-height:1.4;}
 .lab-tile .lt-points li::before{content:"✓"; color:var(--signal); font-weight:700; font-size:10px; margin-top:2px;}
+.lab-tile .lt-visual img{width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:0;}
 
 .split-cols{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
 .guide-list{display:flex; flex-direction:column;}
@@ -387,6 +388,7 @@ a.dispatch-source:hover{color:var(--signal);}
 .trio-card.vs .tr-visual{background:linear-gradient(120deg,#151417,#2a2730);}
 .trio-card.ai .tr-visual{background:linear-gradient(120deg,#1c1420,var(--signal-deep));}
 .trio-card.file .tr-visual{background:linear-gradient(120deg,#151417,#3a2430);}
+.trio-card .tr-visual img{width:100%; height:100%; object-fit:cover; display:block;}
 .trio-card .tr-vs-label{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   font-family:var(--display); font-weight:900; font-size:26px; color:#fff; letter-spacing:.02em;
