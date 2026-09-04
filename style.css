@@ -459,3 +459,29 @@ footer .mono{color:#a9aaa1;}
 .rehber-card .go{font-family:var(--mono); font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--signal-deep);}
 .rehber-card .go:hover{color:var(--signal);}
 @media(max-width:720px){.rehber-grid{grid-template-columns:1fr;}}
+
+/* Sosyal paylaşım widget'ı */
+.share-row{display:flex; align-items:center; gap:6px; margin-top:12px; flex-wrap:wrap;}
+.share-label{font-family:var(--mono); font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-right:2px;}
+.share-btn{
+  width:26px; height:26px; display:inline-flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--line-soft); border-radius:6px; color:var(--ink); background:var(--panel);
+  text-decoration:none; flex:0 0 auto; transition:background .15s, border-color .15s, color .15s;
+}
+.share-btn svg{width:13px; height:13px; display:block;}
+.share-btn:hover{background:var(--signal); border-color:var(--signal); color:#fff;}
+.share-row-sm .share-btn{width:22px; height:22px;}
+.share-row-sm .share-btn svg{width:11px; height:11px;}
+.share-row-page{margin:0 0 0 14px; gap:5px;}
+.share-row-page .share-btn{width:20px; height:20px; border-color:rgba(255,255,255,.18); background:transparent; color:#a8a4ad;}
+.share-row-page .share-btn svg{width:10px; height:10px;}
+.share-row-page .share-btn:hover{background:var(--signal); border-color:var(--signal); color:#fff;}
+.share-toast{
+  position:absolute; z-index:999; background:var(--ink); color:#fff; font-family:var(--mono);
+  font-size:11px; font-weight:700; padding:6px 10px; border-radius:6px; opacity:0;
+  transform:translateY(4px); transition:opacity .2s, transform .2s; pointer-events:none; white-space:nowrap;
+}
+.share-toast.show{opacity:1; transform:translateY(0);}
+@media (max-width:640px){
+  .share-row-page{display:none;}
+}
