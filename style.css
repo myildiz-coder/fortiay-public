@@ -139,16 +139,16 @@ main{max-width:1180px; margin:0 auto; padding:36px 20px 64px;}
 .manset-panel{display:none; padding:30px; gap:28px;}
 .manset-panel .dispatch-visual{flex:0 0 320px; height:220px;}
 .manset-panel .dispatch-headline{font-size:28px;}
-#manset-1:checked ~ .manset-panels #panel-1,
-#manset-2:checked ~ .manset-panels #panel-2,
-#manset-3:checked ~ .manset-panels #panel-3,
-#manset-4:checked ~ .manset-panels #panel-4,
-#manset-5:checked ~ .manset-panels #panel-5,
-#manset-6:checked ~ .manset-panels #panel-6,
-#manset-7:checked ~ .manset-panels #panel-7,
-#manset-8:checked ~ .manset-panels #panel-8,
-#manset-9:checked ~ .manset-panels #panel-9,
-#manset-10:checked ~ .manset-panels #panel-10{display:flex;}
+#manset-1:checked ~ .manset-layout .manset-panels #panel-1,
+#manset-2:checked ~ .manset-layout .manset-panels #panel-2,
+#manset-3:checked ~ .manset-layout .manset-panels #panel-3,
+#manset-4:checked ~ .manset-layout .manset-panels #panel-4,
+#manset-5:checked ~ .manset-layout .manset-panels #panel-5,
+#manset-6:checked ~ .manset-layout .manset-panels #panel-6,
+#manset-7:checked ~ .manset-layout .manset-panels #panel-7,
+#manset-8:checked ~ .manset-layout .manset-panels #panel-8,
+#manset-9:checked ~ .manset-layout .manset-panels #panel-9,
+#manset-10:checked ~ .manset-layout .manset-panels #panel-10{display:flex;}
 
 /* ---------- Hero ---------- */
 .hero{margin-bottom:40px; padding-bottom:32px; border-bottom:2px solid var(--line);}
