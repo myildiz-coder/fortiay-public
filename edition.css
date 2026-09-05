@@ -46,3 +46,13 @@ body.fortiay-newspaper{--bg:#f5f3ef;--signal:#e60072;--signal-deep:#ab0055;--ink
 .fx-cover-text h1{word-spacing:.07em}
 @media(max-width:560px){.fx-cover-text h1{text-wrap:balance;letter-spacing:-.045em}}
 @media(max-width:370px){.fx-cover-text h1{font-size:clamp(32px,10.5vw,37px)}}
+
+.sonora-campaign{position:relative;z-index:20;padding:.45rem 0 .7rem;background:#090b10;color:#fff;border-block:1px solid #242a35;font-family:Arial,Helvetica,sans-serif}
+.sonora-campaign-meta{width:min(100% - 32px,1440px);margin:0 auto .35rem;font-size:.68rem;font-weight:800;letter-spacing:.16em;color:#aeb4bf}
+.sonora-campaign-viewport{position:relative;width:min(100%,1440px);margin:auto;aspect-ratio:3/1;overflow:hidden;background:#07090d}
+.sonora-campaign-slide{position:absolute;inset:0;display:block;opacity:0;animation:sonora-campaign-cycle 18s infinite;animation-delay:calc(var(--sonora-slide) * 6s)}
+.sonora-campaign-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.sonora-campaign-slide:focus-visible{outline:3px solid #ed1533;outline-offset:-3px}
+@keyframes sonora-campaign-cycle{0%,30%{opacity:1;z-index:1}33.34%,100%{opacity:0;z-index:0}}
+@media(max-width:640px){.sonora-campaign{padding-bottom:.45rem}.sonora-campaign-meta{font-size:.62rem}.sonora-campaign-viewport{aspect-ratio:1.65/1}.sonora-campaign-slide img{width:auto;min-width:182%;max-width:none;object-position:left center}}
+@media(prefers-reduced-motion:reduce){.sonora-campaign-slide{display:none;animation:none}.sonora-campaign-slide:first-child{display:block;opacity:1}}
