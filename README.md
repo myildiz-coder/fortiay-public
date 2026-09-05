@@ -1,10 +1,10 @@
-# FORTIAY — Telefon Ekosistemi Teknoloji Dergisi
+# FORTIAY — Teknoloji Gazetesi
 
-**FORTIAY**, akıllı telefon ve geniş anlamda "telefon ekosistemi" (tabletler, giyilebilir teknoloji, kulaklıklar, dizüstü bilgisayarlar, yapay zekâ destekli yazılımlar) üzerine kurulmuş, haber peşinde koşan, sahaya çıkan, agresif ve hızlı bir Türkçe teknoloji dergisidir. CHIP ve benzeri büyük teknoloji dergilerinden ilham alır; golhat.com'da kurulan editöryel disiplin ve otomasyon modelinin teknoloji dünyasına uyarlanmış hâlidir.
+**FORTIAY**, yapay zekâ, bilim ve uzay, donanım, telefon, dijital yaşam, girişim ve sanayi alanlarını kapsayan Türkçe teknoloji gazetesidir. SonSinyal Teknoloji'nin araştırma, haber ve köşe yazısı birikimi Fortiay'ın mevcut cihaz haberleri ve rehberleriyle birleşir. Kullanıcının 5 Eylül 2026 tercihi doğrultusunda yayın yalnız telefon ekosistemiyle sınırlandırılmaz. Mevcut `images/logo-wordmark.png` logosu değiştirilmez.
 
 ## Misyon
 
-- Türkiye'deki teknoloji/telefon ekosistemi haberciliğinde en hızlı, en doğru ve en sert (ama her zaman doğru) sesi olmak.
+- Teknolojiyi ürünlerin yanı sıra bilim, çalışma hayatı, üretim, altyapı ve toplum üzerindeki etkileriyle izlemek.
 - Üreticilerin, sızıntı kaynaklarının, resmi lansmanların haberini ilk ve en doğru şekilde vermek.
 - Karşılaştırmalı inceleme ve "sağlı sollu" (yani her rakip markaya eşit mesafede) sert eleştirel bakış açısı sunmak.
 
@@ -50,3 +50,11 @@ GOLHAT'ta kanıtlanmış model uyarlanmıştır: **1 Baş Editör + kategori edi
 ## Teknik Yapı
 
 Statik HTML/CSS sitesi, GitHub Pages ile yayınlanır. Her kategori sayfası aynı `dispatch` kart deseniyle tekrar eden haber blokları içerir (bkz. `index.html` kaynak kodu).
+
+## Birleşen teknoloji gazetesi — 5 Eylül 2026
+
+- Ortak görünüm `newspaper.css`, arşiv araması `newspaper.js` ve `search-index.json` üzerinden çalışır. Arama sonuçları HTML içinde de mevcuttur.
+- Fortiay'ın önceki kategori, rehber ve köşe yazılarının adresleri ve tam metinleri korunur. Ana sayfa genel teknoloji gazetesidir.
+- SonSinyal Teknoloji'nin dört araştırma dosyası `arastirma-*.html`, Kalkınma Hattı köşesi `kose-uretim-teknoloji-enerji.html` içinde tam metni ve kaynaklarıyla yer alır.
+- Aktarılan dokuz haber `haber-live-*.html` sayfalarında kaynaklı özet olarak sunulur. Kaynak yayın tarihleri korunur. Bu aktarım canlı veya otomatik güncellenen bir haber servisi değildir; sonraki güncellemelerde yeni içerik ayrıca doğrulanıp yayımlanmalıdır.
+- SonSinyal bağlantısı bütün sayfalarda kendi logosuyla ana menüde yer alır. SonSinyal kaynak atıfları yayın kökenini belirtir; gazetenin markası FORTIAY'dır.
