@@ -53,7 +53,8 @@ Statik HTML/CSS sitesi, GitHub Pages ile yayınlanır. Her kategori sayfası ayn
 
 ## Birleşen teknoloji gazetesi — 5 Eylül 2026
 
-- Ortak görünüm `newspaper.css`, arşiv araması `newspaper.js` ve `search-index.json` üzerinden çalışır. Arama sonuçları HTML içinde de mevcuttur.
+- Ortak görünüm `newspaper.css` üzerine yüklenen `edition.css` ile tamamlanır. Siyah/fuşya kapak, özgün logolu masthead ve iç sayfa okuma düzeni bu tasarım katmanındadır. `edition.js`, dört kapak dosyası arasında klavyeyle de çalışabilen geçişi ve ana sayfa konu filtrelerini sağlar.
+- Arşiv araması `newspaper.js` ve `search-index.json` üzerinden çalışır. Arama sonuçları HTML içinde de mevcuttur. Kapaktaki çip, ürün fotoğrafı olmayan kavramsal bir SVG çizimidir; haber veya ürün görseli olarak sunulmaz.
 - Fortiay'ın önceki kategori, rehber ve köşe yazılarının adresleri ve tam metinleri korunur. Ana sayfa genel teknoloji gazetesidir.
 - SonSinyal Teknoloji'nin dört araştırma dosyası `arastirma-*.html`, Kalkınma Hattı köşesi `kose-uretim-teknoloji-enerji.html` içinde tam metni ve kaynaklarıyla yer alır.
 - Aktarılan dokuz haber `haber-live-*.html` sayfalarında kaynaklı özet olarak sunulur. Kaynak yayın tarihleri korunur. Bu aktarım canlı veya otomatik güncellenen bir haber servisi değildir; sonraki güncellemelerde yeni içerik ayrıca doğrulanıp yayımlanmalıdır.
