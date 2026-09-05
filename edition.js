@@ -1,4 +1,10 @@
 (()=>{
+ const campaign=document.createElement('aside');
+ campaign.className='sonora-campaign';
+ campaign.setAttribute('aria-label','SONORA Teknoloji reklamı');
+ campaign.innerHTML='<div class="sonora-campaign-meta">REKLAM · SONORA TEKNOLOJİ</div><div class="sonora-campaign-viewport"><a class="sonora-campaign-slide" style="--sonora-slide:0" href="https://sonora.tr/" target="_blank" rel="noopener sponsored" aria-label="Telefonunda sorun mu var? SONORA burada. sonora.tr adresini ziyaret et."><img src="https://www.sonsinyal.com/ads/sonora-burada.png" alt="Telefonunda sorun mu var? SONORA burada. Ekran, batarya ve teknik servis." width="2172" height="724"></a><a class="sonora-campaign-slide" style="--sonora-slide:1" href="https://sonora.tr/" target="_blank" rel="noopener sponsored" aria-label="30 dakikada ekran değişimi için sonora.tr adresini ziyaret et."><img src="https://www.sonsinyal.com/ads/sonora-ekran-degisimi.png" alt="Ekranın kırılsa da, günün bölünmesin. 30 dakikada ekran değişimi." width="2172" height="724"></a><a class="sonora-campaign-slide" style="--sonora-slide:2" href="https://sonora.tr/" target="_blank" rel="noopener sponsored" aria-label="30 dakikada batarya değişimi için sonora.tr adresini ziyaret et."><img src="https://www.sonsinyal.com/ads/sonora-batarya-degisimi.png" alt="Şarjın bitiyor, günün bitmesin. 30 dakikada batarya değişimi." width="2172" height="724"></a></div>';
+ const masthead=document.querySelector('header');
+ if(masthead) masthead.insertAdjacentElement('afterend',campaign);
  const tabs=[...document.querySelectorAll('.fx-cover-tabs [role="tab"]')];
  function selectTab(tab,focus=false){
   tabs.forEach(t=>{const selected=t===tab;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;});
