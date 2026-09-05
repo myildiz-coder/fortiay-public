@@ -487,3 +487,14 @@ footer .mono{color:#a9aaa1;}
 @media (max-width:640px){
   .share-row-page{display:none;}
 }
+
+/* SonSinyal publication menu — shared by every page. */
+nav.deska a.nav-publication{display:flex;align-items:center;flex:0 0 auto;gap:12px;min-height:46px;margin:0 10px 0 0;padding:7px 12px;background:#f2f0e8;border:1px solid #c9c7bd;color:#11120f;text-transform:none;letter-spacing:normal;line-height:1;}
+nav.deska a.nav-publication:hover{background:#fff;border-color:#ff4f1f;color:#11120f;}
+nav.deska a.nav-publication:focus-visible{outline:3px solid #ff4f1f;outline-offset:-3px;}
+.sonsinyal-wordmark{display:inline-flex;align-items:center;gap:7px;font:900 23px/1 Arial,Helvetica,sans-serif;letter-spacing:-.075em;white-space:nowrap;}
+.sonsinyal-wordmark>span:last-child>span{color:#ff4f1f;}
+.sonsinyal-orbit{display:block;position:relative;flex:0 0 26px;width:26px;height:26px;border:1.5px solid #11120f;border-radius:50%;}
+.sonsinyal-orbit::after{content:'';position:absolute;width:32px;border-top:1px solid #11120f;transform:rotate(-42deg);left:-4px;top:11px;}
+.sonsinyal-orbit i{position:absolute;width:6px;height:6px;border-radius:50%;background:#ff4f1f;right:-1px;top:1px;z-index:1;}
+.nav-publication .publication-arrow{color:#ff4f1f;font:700 17px/1 Arial,sans-serif;}
