@@ -5,7 +5,7 @@ Türkiye'nin telefon ekosistemi dergisinin sitesi. Astro ile üretilen statik si
 ## Yayına alma (Cloudflare Pages)
 - Build komutu: `npm run build`
 - Çıktı klasörü: `dist`
-- Node sürümü: 20 veya üstü
+- Node sürümü: 22.12 veya üstü
 
 ## İçerik
 - Her yazı `src/content/yazilar/<adres>.md` dosyasıdır. Dosya adı adresin son parçası olur: `/<kanal>/<dosya-adı>/`.
