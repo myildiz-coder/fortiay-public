@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Kart from '../components/Kart.astro';
+import { tumYazilar } from '../data/yazilar';
+import { SAYILAR } from '../data/site';
+import fiyat from '../data/fiyat.json';
+
+const yazilar = await tumYazilar();
+const haberler = yazilar.filter((y) => y.data.kanal !== 'kose');
+const manset = haberler.find((y) => y.data.mansetMi) ?? haberler[0];
+const yan = haberler.filter((y) => y !== manset).slice(0, 4);
+const kalan = haberler.filter((y) => y !== manset && !yan.includes(y)).slice(0, 6);
+const kose = yazilar.filter((y) => y.data.kanal === 'kose').slice(0, 3);
+const sayi = SAYILAR[0];
+const fiyatOzet = fiyat.segmentler.flatMap((s) => s.satirlar).slice(0, 6);
+---
+<Base title="FORTIAY">
+  <div class="sar">
+    <section class="manset" aria-label="Manşet">
+      <Kart yazi={manset} buyuk />
+      <div class="manset-yan">
+        {yan.map((y) => <Kart yazi={y} gorselsiz />)}
+      </div>
+    </section>
+
+    <div class="bolum-bas"><h2>Son yazılar</h2><a href="/haber/">Tüm haberler →</a></div>
+    <div class="izgara">{kalan.map((y) => <Kart yazi={y} />)}</div>
+
+    <div class="bolum-bas"><h2>Fiyat rehberi</h2><a href="/fiyat/">Tüm liste →</a></div>
+    <div class="tablo-sar">
+      <table class="tablo">
+        <thead><tr><th>Model</th><th>Seçenek</th><th>Fiyat (TL)</th><th>Kaynak · tarih</th></tr></thead>
+        <tbody>
+          {fiyatOzet.map((r) => (
+            <tr><td class="model">{r.model}</td><td>{r.secenek}</td><td class="sayi">{r.fiyat}</td><td class="meta">{r.kaynak} · {new Date(r.tarih).toLocaleDateString('tr-TR')}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="meta">{fiyat.kapsam}</p>
+  </div>
+
+  <section class="dergi-serit" aria-label="Dergi">
+    <div class="dergi-serit-ic">
+      <a href={`/dergi/sayi-${sayi.no}/`}><img src={sayi.kapak} alt={`FORTIAY ${sayi.ad} kapağı`} width="220" /></a>
+      <div>
+        <span class="ust-etiket">Basılı dergi · {sayi.donem}</span>
+        <h2>FORTIAY {sayi.ad}</h2>
+        <p>{sayi.ozet} {sayi.sayfa} sayfa.</p>
+        <div class="eylemler">
+          <a class="dugme" href={`/dergi/sayi-${sayi.no}/`}>Sayıyı incele</a>
+          <a class="dugme ikincil" href="/dergi/sayi-01/oku/">Sayı 01'i ücretsiz oku</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sar">
+    {kose.length > 0 && <>
+      <div class="bolum-bas"><h2>Editör</h2><a href="/kose/">Tüm yazılar →</a></div>
+      <div class="izgara">{kose.map((y) => <Kart yazi={y} gorselsiz />)}</div>
+    </>}
+  </div>
+</Base>

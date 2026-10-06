@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import Kart from '../../components/Kart.astro';
+import { tumYazilar } from '../../data/yazilar';
+import { KANALLAR } from '../../data/site';
+
+export function getStaticPaths() {
+  return Object.keys(KANALLAR).map((kanal) => ({ params: { kanal } }));
+}
+const { kanal } = Astro.params as { kanal: keyof typeof KANALLAR };
+const k = KANALLAR[kanal];
+const yazilar = (await tumYazilar()).filter((y) => y.data.kanal === kanal);
+---
+<Base title={k.ad} aciklama={k.aciklama} etkin={`/${kanal}/`}>
+  <div class="sar">
+    <header class="kanal-bas">
+      <span class="ust-etiket">FORTIAY kanal</span>
+      <h1>{k.ad}</h1>
+      <p>{k.aciklama}</p>
+    </header>
+    {yazilar.length === 0
+      ? <p class="bos">Bu kanalda yayımlanmış yazı yok. İlk içerikler hazırlanıyor.</p>
+      : <div class="liste">{yazilar.map((y) => <Kart yazi={y} />)}</div>}
+  </div>
+</Base>

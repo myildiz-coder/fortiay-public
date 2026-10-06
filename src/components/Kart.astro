@@ -1,0 +1,18 @@
+---
+import { KANALLAR, tarihTR } from '../data/site';
+interface Props { yazi: any; buyuk?: boolean; gorselsiz?: boolean; }
+const { yazi, buyuk = false, gorselsiz = false } = Astro.props;
+const d = yazi.data;
+const url = `/${d.kanal}/${yazi.id}/`;
+---
+<article class:list={['kart', { 'manset-ana': buyuk, metinsel: !d.gorsel || gorselsiz }]}>
+  {!gorselsiz && d.gorsel && (
+    <a href={url} class="gorsel" tabindex="-1" aria-hidden="true"><img src={d.gorsel} alt="" loading="lazy" /></a>
+  )}
+  <div>
+    <span class="ust-etiket">{KANALLAR[d.kanal as keyof typeof KANALLAR].ad}</span>
+    <h3><a href={url}>{d.title}</a></h3>
+    <p>{d.ozet}</p>
+    <span class="meta">{d.imza} · {tarihTR(d.tarih)}</span>
+  </div>
+</article>

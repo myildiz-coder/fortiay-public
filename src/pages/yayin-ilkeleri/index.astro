@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { DAMGALAR } from '../../data/site';
+---
+<Base title="Yayın ilkeleri" aciklama="FORTIAY'ın kaynak, fiyat, damga ve reklam kuralları.">
+  <div class="metin">
+    <span class="ust-etiket">Okura sözümüz</span>
+    <h1>Yayın ilkeleri</h1>
+    <p>FORTIAY telefon alacak okur için yazılır. Kaliteli, kurumsal ve önyargısız yayıncılık yaparız; markalara eşit mesafede dururuz.</p>
+    <h2>Her rakamın kaynağı ve tarihi yazılır</h2>
+    <p>Fiyatlar dört parçayla verilir: tutar, kaynak, tarih ve kapsam. Kaynağı olmayan rakam yayımlanmaz.</p>
+    <h2>Dört damga</h2>
+    <dl>{Object.entries(DAMGALAR).map(([k, v]) => <><dt><span class={`damga damga-${k}`}>{v.ad}</span></dt><dd>{v.aciklama}</dd></>)}</dl>
+    <h2>Görseller</h2>
+    <p>Ürün görselleri üreticinin resmî basın materyalinden ya da FORTIAY tezgâhında çekilen fotoğraflardan gelir ve kaynağı yazılır. Yapay zekâyla üretilmiş ürün ya da haber görseli kullanılmaz.</p>
+    <h2>Ticari ilişkiler</h2>
+    <p>FORTIAY'ın yayıncısıyla ticari ilişkisi bulunan bir marka ya da ürün yazıldığında, yazının başında bunu belirten bir beyan kutusu yer alır.</p>
+    <h2>Reklam</h2>
+    <p>İlanlar "İLAN", sponsorlu yazılar "SPONSORLU İÇERİK" etiketi taşır. İnceleme, karşılaştırma ve puan sayfaları reklamdan bağımsızdır; reklam veren markanın cihazı da aynı ölçütlerle değerlendirilir.</p>
+    <h2>Düzeltmeler</h2>
+    <p>Yanlış bir bilgi fark edildiğinde yazı düzeltilir ve yazının başında "Güncellendi" tarihi görünür. Düzeltme bildirmek için: mustafa@sonora.tr</p>
+  </div>
+</Base>

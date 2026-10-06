@@ -1,0 +1,24 @@
+---
+import Base from '../../../../layouts/Base.astro';
+const SAYFA = 94;
+const sayfalar = Array.from({ length: SAYFA }, (_, i) => i + 1);
+---
+<Base title="Sayı 01'i oku" aciklama="FORTIAY Sayı 01'in 94 sayfasını çevrimiçi okuyun." gorsel="/dergi/sayi-01/kapak.webp" etkin="/dergi/">
+  <div class="okuyucu">
+    <div class="eylemler" style="justify-content:space-between;align-items:center">
+      <span class="ust-etiket">FORTIAY Sayı 01 · Eylül 2026 · {SAYFA} sayfa</span>
+      <a class="dugme" href="/dergi/sayi-01/FORTIAY-Sayi01.pdf" download>PDF'yi indir</a>
+    </div>
+    {sayfalar.map((n) => (
+      <figure id={`sayfa-${n}`}>
+        <img src={`/dergi/sayi-01/sayfalar/page-${String(n).padStart(2, '0')}.jpg`} alt={`FORTIAY Sayı 01, sayfa ${n}`} width="966" height="1290" loading={n < 3 ? 'eager' : 'lazy'} />
+        <figcaption>{n} / {SAYFA}</figcaption>
+      </figure>
+    ))}
+  </div>
+  <script is:inline>
+    // Eski "#page=16" bağlantıları yeni "#sayfa-16" çapasına çevrilir.
+    const m = location.hash.match(/page=(\d+)/);
+    if (m) location.hash = 'sayfa-' + m[1];
+  </script>
+</Base>

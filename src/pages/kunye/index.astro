@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+const satirlar = [
+  ['Yayın adı', 'FORTIAY Telefon Ekosistemi Dergisi'],
+  ['Yayın türü', 'Üç ayda bir basılı dergi ve günlük yayımlanan internet sitesi'],
+  ['ISSN', '3150-065X'],
+  ['İlk sayı', 'Sayı 01 · Eylül 2026'],
+  ['İmtiyaz sahibi', 'Mustafa Yıldız'],
+  ['Sorumlu yazı işleri müdürü', 'Mustafa Yıldız'],
+  ['Kurucu editör', 'Mustafa Yıldız'],
+  ['Haber ve araştırma', 'FORTIAY Masası'],
+  ['Yayıncı', 'Sonora Teknoloji Ltd. Şti.'],
+  ['Adres', 'Ferhatpaşa Mah. Yeditepe Cad. No:32/B, Ataşehir / İstanbul'],
+  ['İletişim', 'mustafa@sonora.tr'],
+  ['Reklam', 'mustafa@sonora.tr'],
+];
+---
+<Base title="Künye" etkin="/kunye/">
+  <div class="metin">
+    <span class="ust-etiket">Yayın künyesi</span>
+    <h1>FORTIAY</h1>
+    <dl>{satirlar.map(([a, b]) => <><dt>{a}</dt><dd>{b}</dd></>)}</dl>
+  </div>
+</Base>

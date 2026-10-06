@@ -1,0 +1,32 @@
+{
+  "guncelleme": "2026-10-02",
+  "kapsam": "Üreticinin Türkiye resmî mağazasındaki liste fiyatı. Kampanya, kupon ve banka indirimi dâhil değil.",
+  "segmentler": [
+    {
+      "ad": "Katlanabilir",
+      "satirlar": [
+        { "model": "iPhone Duo", "secenek": "256 GB / 512 GB / 1 TB / 2 TB", "fiyat": "229.999 / 246.999 / 280.999 / 335.999", "kaynak": "apple.com/tr", "tarih": "2026-09-15" },
+        { "model": "Galaxy Z Fold8 Ultra", "secenek": "256 GB", "fiyat": "151.999", "kaynak": "samsung.com/tr", "tarih": "2026-10-02" },
+        { "model": "Galaxy Z Fold8", "secenek": "256 GB", "fiyat": "131.999", "kaynak": "samsung.com/tr", "tarih": "2026-10-02" },
+        { "model": "Galaxy Z Flip8", "secenek": "256 GB / 512 GB", "fiyat": "96.999 / 108.999", "kaynak": "samsung.com/tr", "tarih": "2026-10-02" }
+      ]
+    },
+    {
+      "ad": "Amiral gemisi",
+      "satirlar": [
+        { "model": "iPhone 18 Pro Max", "secenek": "256 GB / 512 GB / 1 TB / 2 TB", "fiyat": "149.999 / 166.999 / 200.999 / 255.999", "kaynak": "apple.com/tr (Sayı 01 kaydı)", "tarih": "2026-09-13" },
+        { "model": "iPhone 18 Pro", "secenek": "256 GB / 512 GB / 1 TB / 2 TB", "fiyat": "137.999 / 154.999 / 188.999 / 243.999", "kaynak": "apple.com/tr (Sayı 01 kaydı)", "tarih": "2026-09-13" },
+        { "model": "Galaxy S26+", "secenek": "256 GB", "fiyat": "103.999", "kaynak": "samsung.com/tr", "tarih": "2026-10-02" },
+        { "model": "Galaxy S26", "secenek": "256 GB", "fiyat": "86.999", "kaynak": "samsung.com/tr", "tarih": "2026-10-02" }
+      ]
+    },
+    {
+      "ad": "Üst orta segment",
+      "satirlar": [
+        { "model": "Xiaomi 17T Pro", "secenek": "en düşük hafıza", "fiyat": "69.999", "kaynak": "mi.com/tr", "tarih": "2026-10-02" },
+        { "model": "Galaxy S26 FE", "secenek": "256 GB", "fiyat": "54.999", "kaynak": "samsung.com/tr", "tarih": "2026-10-02" },
+        { "model": "Xiaomi 17T", "secenek": "en düşük hafıza", "fiyat": "54.999", "kaynak": "mi.com/tr", "tarih": "2026-10-02" }
+      ]
+    }
+  ]
+}

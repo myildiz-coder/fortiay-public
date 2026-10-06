@@ -1,0 +1,72 @@
+---
+import '../styles/site.css';
+import { MENU, SAYILAR } from '../data/site';
+
+interface Props { title: string; aciklama?: string; gorsel?: string; tip?: 'website' | 'article'; etkin?: string; }
+const { title, aciklama = 'FORTIAY — Türkiye’nin telefon ekosistemi dergisi. Kaynaklı, tarihli fiyat ve damgalı veri.', gorsel = '/dergi/sayi-02/kapak.jpg', tip = 'website', etkin = '' } = Astro.props;
+const tamBaslik = title === 'FORTIAY' ? 'FORTIAY — Telefon Ekosistemi Dergisi' : `${title} — FORTIAY`;
+const kanonik = new URL(Astro.url.pathname, Astro.site);
+const sonSayi = SAYILAR[0];
+---
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{tamBaslik}</title>
+  <meta name="description" content={aciklama}>
+  <link rel="canonical" href={kanonik}>
+  <meta property="og:type" content={tip}>
+  <meta property="og:title" content={tamBaslik}>
+  <meta property="og:description" content={aciklama}>
+  <meta property="og:image" content={new URL(gorsel, Astro.site)}>
+  <meta property="og:locale" content="tr_TR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="FORTIAY" href="/rss.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <slot name="head" />
+</head>
+<body>
+  <a class="atla" href="#icerik">İçeriğe geç</a>
+  <header>
+    <div class="ust">
+      <div class="ust-ic">
+        <a class="marka" href="/">FORTIAY<span>TELEFON EKOSİSTEMİ DERGİSİ</span></a>
+        <div class="ust-sag">
+          <a class="gizle-mobil" href="/dergi/">Dergi arşivi</a>
+          <a class="dugme" href={`/dergi/sayi-${sonSayi.no}/`}>Yeni sayı: {sonSayi.no}</a>
+        </div>
+      </div>
+    </div>
+    <nav class="menu" aria-label="Ana menü">
+      <div class="menu-ic">
+        {MENU.map((m) => <a href={m.url} class={etkin === m.url ? 'etkin' : ''}>{m.ad}</a>)}
+      </div>
+    </nav>
+  </header>
+  <main id="icerik"><slot /></main>
+  <footer class="alt">
+    <div class="alt-ic">
+      <div>
+        <a class="marka" href="/">FORTIAY</a>
+        <p>Telefon alacak okura kaynaklı, tarihli fiyat ve damgalı veri. Üç ayda bir basılı dergi, her gün sitede.</p>
+      </div>
+      <div>
+        <h4>Kanallar</h4>
+        {MENU.map((m) => <a href={m.url}>{m.ad}</a>)}
+      </div>
+      <div>
+        <h4>FORTIAY</h4>
+        <a href="/dergi/">Dergi arşivi</a>
+        <a href="/yayin-ilkeleri/">Yayın ilkeleri</a>
+        <a href="/kunye/">Künye</a>
+        <a href="/rss.xml">RSS</a>
+      </div>
+    </div>
+    <div class="alt-dip">© 2026 Sonora Teknoloji Ltd. Şti. · ISSN 3150-065X · fortiay.com</div>
+  </footer>
+</body>
+</html>

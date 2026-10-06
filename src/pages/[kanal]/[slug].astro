@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import Kart from '../../components/Kart.astro';
+import { render } from 'astro:content';
+import { tumYazilar } from '../../data/yazilar';
+import { KANALLAR, DAMGALAR, SAYILAR, tarihTR } from '../../data/site';
+
+export async function getStaticPaths() {
+  const yazilar = await tumYazilar();
+  return yazilar.map((yazi) => ({ params: { kanal: yazi.data.kanal, slug: yazi.id }, props: { yazi, yazilar } }));
+}
+const { yazi, yazilar } = Astro.props;
+const d = yazi.data;
+const { Content } = await render(yazi);
+const ilgili = yazilar.filter((y) => y.id !== yazi.id && y.data.kanal === d.kanal).slice(0, 3);
+const sayi = d.sayi ? SAYILAR.find((s) => s.no === d.sayi) : undefined;
+const sema = {
+  '@context': 'https://schema.org', '@type': d.kanal === 'inceleme' ? 'Review' : 'NewsArticle',
+  headline: d.title, description: d.ozet, datePublished: d.tarih.toISOString(),
+  dateModified: (d.guncelleme ?? d.tarih).toISOString(),
+  author: { '@type': d.imza === 'FORTIAY Masası' ? 'Organization' : 'Person', name: d.imza },
+  publisher: { '@type': 'Organization', name: 'FORTIAY' },
+  image: d.gorsel ? new URL(d.gorsel, Astro.site).href : undefined,
+};
+---
+<Base title={d.title} aciklama={d.ozet} gorsel={d.gorsel} tip="article" etkin={`/${d.kanal}/`}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(sema)} />
+  <article class="yazi">
+    <a class="ust-etiket" href={`/${d.kanal}/`}>{KANALLAR[d.kanal].ad}</a>
+    <h1>{d.title}</h1>
+    <p class="ozet">{d.ozet}</p>
+    <div class="kunye-satir">
+      <b>{d.imza}</b>
+      <span class="meta">{tarihTR(d.tarih)}</span>
+      {d.guncelleme && <span class="meta">Güncellendi: {tarihTR(d.guncelleme)}</span>}
+      {d.damga && <span class={`damga damga-${d.damga}`} title={DAMGALAR[d.damga].aciklama}>{DAMGALAR[d.damga].ad}</span>}
+    </div>
+    {d.gorsel && (
+      <figure>
+        <img src={d.gorsel} alt={d.gorselAlt ?? ''} />
+        <figcaption>{d.gorselKaynak ? `Görsel: ${d.gorselKaynak}` : sayi ? `FORTIAY ${sayi.ad}, sayfa ${d.sayfa}` : ''}</figcaption>
+      </figure>
+    )}
+    {d.ticariBeyan && <div class="beyan"><b>Ticari ilişki beyanı.</b> {d.ticariBeyan}</div>}
+    <div class="govde"><Content /></div>
+    {sayi && (
+      <div class="dergi-not">
+        <p><b>Bu yazı FORTIAY {sayi.ad}'de yayımlandı.</b> Dosyanın özgün sayfa düzeni dergide.</p>
+        <a class="dugme" href={sayi.ucretli ? `/dergi/sayi-${sayi.no}/` : `/dergi/sayi-${sayi.no}/oku/#sayfa-${d.sayfa}`}>Dergide aç</a>
+      </div>
+    )}
+  </article>
+  {ilgili.length > 0 && (
+    <div class="sar">
+      <div class="bolum-bas"><h2>{KANALLAR[d.kanal].ad} kanalından</h2><a href={`/${d.kanal}/`}>Tümü →</a></div>
+      <div class="izgara">{ilgili.map((y) => <Kart yazi={y} />)}</div>
+    </div>
+  )}
+</Base>

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SAYILAR } from '../../data/site';
+---
+<Base title="Dergi arşivi" aciklama="FORTIAY'ın bütün sayıları: kapak, içerik ve satın alma." etkin="/dergi/">
+  <div class="sar">
+    <header class="kanal-bas">
+      <span class="ust-etiket">Üç ayda bir · basılı ve dijital</span>
+      <h1>Dergi arşivi</h1>
+      <p>Sayı 01 ücretsiz okunur. Sayı 02'den itibaren dergi satıştadır.</p>
+    </header>
+    <div class="izgara" style="margin-top:32px">
+      {SAYILAR.map((s) => (
+        <article class="kart">
+          <a href={`/dergi/sayi-${s.no}/`}><img src={s.kapak} alt={`FORTIAY ${s.ad} kapağı`} loading="lazy" style="border:1px solid var(--cizgi)" /></a>
+          <span class="ust-etiket">{s.donem} · {s.sayfa} sayfa{s.ucretli ? '' : ' · ücretsiz'}</span>
+          <h3><a href={`/dergi/sayi-${s.no}/`}>FORTIAY {s.ad}</a></h3>
+          <p>{s.ozet}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</Base>

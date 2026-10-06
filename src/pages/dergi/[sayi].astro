@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SAYILAR } from '../../data/site';
+export function getStaticPaths() {
+  return SAYILAR.map((s) => ({ params: { sayi: `sayi-${s.no}` }, props: { s } }));
+}
+const { s } = Astro.props as { s: any };
+const sat = s.satinAl ?? {};
+const kanallar = [
+  { ad: 'Magzter’da satın al', url: sat.magzter },
+  { ad: 'Dijital (PDF) satın al', url: sat.dijital },
+  { ad: 'Basılı dergi sipariş et', url: sat.basili },
+].filter((k) => k.url);
+---
+<Base title={`FORTIAY ${s.ad}`} aciklama={`${s.donem}: ${s.ozet}`} gorsel={s.kapak} etkin="/dergi/">
+  <div class="sar">
+    <section class="sayi-ust">
+      <img src={s.kapak} alt={`FORTIAY ${s.ad} kapağı`} width="300" />
+      <div>
+        <span class="ust-etiket">{s.donem} · {s.sayfa} sayfa</span>
+        <h1>FORTIAY {s.ad}</h1>
+        <p>{s.ozet}</p>
+        {s.ucretli ? (
+          <div class="eylemler">
+            {kanallar.length > 0
+              ? kanallar.map((k, i) => <a class:list={['dugme', { ikincil: i > 0 }]} href={k.url} rel="noopener">{k.ad}</a>)
+              : <span class="dugme pasif">Satış bağlantısı yakında</span>}
+          </div>
+        ) : (
+          <div class="eylemler">
+            <a class="dugme" href={`/dergi/sayi-${s.no}/oku/`}>Ücretsiz oku</a>
+            <a class="dugme ikincil" href={s.pdf} download>PDF'yi indir · {s.pdfBoyut}</a>
+          </div>
+        )}
+      </div>
+    </section>
+    {s.onizleme && <>
+      <div class="bolum-bas"><h2>Sayfalardan</h2><span class="meta">{s.onizleme.length} sayfalık önizleme</span></div>
+      <div class="onizleme">
+        {s.onizleme.map((p: number) => (
+          <figure style="margin:0">
+            <img src={`/dergi/sayi-${s.no}/onizleme/sayfa-${String(p).padStart(3, '0')}.jpg`} alt={`FORTIAY ${s.ad}, sayfa ${p}`} loading="lazy" />
+            <figcaption class="meta">Sayfa {p}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </>}
+  </div>
+</Base>

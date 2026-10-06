@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { DAMGALAR } from '../../data/site';
+import fiyat from '../../data/fiyat.json';
+const gun = (t: string) => new Date(t).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title="Fiyat rehberi" aciklama="Türkiye'de satılan telefonların resmî mağaza fiyatları; her satırda kaynak ve tarih." etkin="/fiyat/">
+  <div class="sar">
+    <header class="kanal-bas">
+      <span class="ust-etiket">Son güncelleme: {gun(fiyat.guncelleme)}</span>
+      <h1>Fiyat rehberi</h1>
+      <p>{fiyat.kapsam} Her rakamın yanında nereden ve ne zaman alındığı yazılı.</p>
+    </header>
+    {fiyat.segmentler.map((s) => (
+      <section>
+        <div class="bolum-bas"><h2>{s.ad}</h2></div>
+        <div class="tablo-sar">
+          <table class="tablo">
+            <thead><tr><th>Model</th><th>Seçenek</th><th>Fiyat (TL)</th><th>Kaynak</th><th>Tarih</th><th>Damga</th></tr></thead>
+            <tbody>
+              {s.satirlar.map((r) => (
+                <tr>
+                  <td class="model">{r.model}</td><td>{r.secenek}</td><td class="sayi">{r.fiyat}</td>
+                  <td>{r.kaynak}</td><td class="meta">{gun(r.tarih)}</td>
+                  <td><span class="damga damga-bey" title={DAMGALAR.bey.aciklama}>BEYAN</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+    <p class="meta" style="margin-top:20px">BEYAN: fiyat üreticinin kendi mağazasında yazan liste fiyatıdır. Satıcıya, kampanyaya ve güne göre değişebilir.</p>
+  </div>
+</Base>
