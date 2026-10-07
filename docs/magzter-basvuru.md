@@ -45,4 +45,18 @@ telefon, akıllı telefon, teknoloji, inceleme, karşılaştırma, aksesuar, fiy
 
 ## Sayı 02 yayın öncesi kontrolü
 
-Tam Sayı 02 PDF'si hazır olduğunda sayfa ölçüsü, dosya boyutu, şifreleme, görsel kaynakları, fiyat/kaynak tarihleri ve ticari beyanlar Magzter yüklemesinden önce kontrol edilecek.
+Çalışma dosyası: `FORTIAY_Sayi02_BASKI_CMYK_100s.pdf`
+
+- 100 sayfa, 16,3 MB, PDF 1.7
+- Şifresiz; JavaScript ve form içermiyor
+- Sayfa ölçüsü: 612 × 810,96 pt
+- Kaynak satırları ve görsel politikası mevcut
+- Sayı 02 fiyatı: 500 TL
+
+### Yüklemeyi durduran düzeltme
+
+PDF'nin 3. ve 4. sayfalarında boş `İLAN ALANI` şablonları bulunuyor. Bu iki sayfa FORTIAY tanıtımı, abonelik/Magzter yönlendirmesi veya yayın politikasını anlatan tamamlanmış kurum ilanlarıyla değiştirilmeden ücretli sayı yüklenmeyecek.
+
+136 sayfalık eski dijital sürüm daha fazla boş reklam şablonu içerdiği için dağıtım dosyası olarak kullanılmayacak.
+
+İki sayfa kapatıldıktan sonra son PDF; fiyat ve tarihlerin güncelliği, ticari beyanlar, sayfa sırası ve görsel kaynakları bakımından yeniden kontrol edilecek.

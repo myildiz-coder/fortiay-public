@@ -36,7 +36,7 @@ export const MAGZTER = {
 // Dergi sayıları. satinAl boş kalırsa düğme "Yakında" olarak görünür.
 export const SAYILAR = [
   {
-    no: '02', ad: 'Sayı 02', donem: 'Ekim–Aralık 2026', sayfa: 104, ucretli: true,
+    no: '02', ad: 'Sayı 02', donem: 'Ekim–Aralık 2026', sayfa: 100, ucretli: true,
     kapak: '/dergi/sayi-02/kapak.jpg',
     ozet: 'Aksesuar masası, ölçüm masası, Çin masası ve 18 Pro ailesinin anatomisi.',
     fiyat: '299 TL',
