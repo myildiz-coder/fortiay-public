@@ -16,7 +16,7 @@ Eski `https://www.magzter.com/publisher-signup` adresi artık çalışmıyor.
 - Kategori: Technology
 - Sıklık: Üç ayda bir
 - Magzter'daki ilk sayı: Sayı 02
-- Sayı 02 tek sayı fiyatı: 500 TL
+- Sayı 02 tek sayı fiyatı: 299 TL
 - İnternet sitesi: https://fortiay.com
 - ISSN: 3150-065X
 - İletişim: mustafa@sonora.tr
@@ -41,7 +41,7 @@ telefon, akıllı telefon, teknoloji, inceleme, karşılaştırma, aksesuar, fiy
 
 - Sayı 01 Magzter'a yüklenmeyecek; fortiay.com üzerinde ücretsiz web/PDF arşivi olarak kalacak.
 - Magzter yayını Sayı 02 ile başlayacak.
-- Sayı 02 tek sayı satış fiyatı 500 TL olacak.
+- Sayı 02 tek sayı satış fiyatı 299 TL olacak.
 
 ## Sayı 02 yayın öncesi kontrolü
 

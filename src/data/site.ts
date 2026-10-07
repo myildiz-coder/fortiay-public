@@ -39,7 +39,7 @@ export const SAYILAR = [
     no: '02', ad: 'Sayı 02', donem: 'Ekim–Aralık 2026', sayfa: 104, ucretli: true,
     kapak: '/dergi/sayi-02/kapak.jpg',
     ozet: 'Aksesuar masası, ölçüm masası, Çin masası ve 18 Pro ailesinin anatomisi.',
-    fiyat: '500 TL',
+    fiyat: '299 TL',
     onizleme: [3, 9, 10, 11, 12, 26],
     satinAl: { magzter: '', dijital: '', basili: '' },
   },
