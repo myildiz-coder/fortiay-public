@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MAGZTER, SAYILAR } from '../../data/site';
+
+const sonSayi = SAYILAR[0];
+---
+<Base title="Magzter" aciklama="FORTIAY'ın Magzter dijital dergi dağıtım durumu ve okuma seçenekleri.">
+  <div class="metin">
+    <span class="ust-etiket">Dijital dağıtım · Magzter</span>
+    <h1>FORTIAY, Magzter için hazırlanıyor.</h1>
+    <p>{MAGZTER.aciklama}</p>
+
+    {MAGZTER.durum === 'yayinda' && MAGZTER.katalogUrl ? (
+      <p><a class="dugme" href={MAGZTER.katalogUrl} rel="noopener">FORTIAY’ı Magzter’da aç</a></p>
+    ) : (
+      <div class="bilgi-kutusu">
+        <strong>Yayın durumu: hazırlık</strong>
+        <p>Yayıncı hesabı, katalog bilgileri ve Sayı 02 dosyası tamamlandığında resmî Magzter bağlantısı bu sayfada yayımlanacak.</p>
+      </div>
+    )}
+
+    <h2>Magzter ayağı ne sağlayacak?</h2>
+    <p>FORTIAY, Magzter kataloğuna Sayı 02 ile girecek. Yeni sayılar web, iOS ve Android üzerinden okunabilecek; Sayı 02’nin tek sayı satış fiyatı 500 TL olacak. Günlük haber, inceleme, rehber ve köşe yayınları fortiay.com’da devam edecek.</p>
+
+    <h2>Şimdilik nasıl okunur?</h2>
+    <div class="eylemler">
+      <a class="dugme" href="/dergi/sayi-01/oku/">Sayı 01’i ücretsiz oku</a>
+      <a class="dugme ikincil" href={`/dergi/sayi-${sonSayi.no}/`}>Sayı {sonSayi.no}’yi incele</a>
+    </div>
+    <p class="meta">Sayı 01 ücretsiz web/PDF arşivi olarak kalacak ve Magzter’a yüklenmeyecek.</p>
+
+    <h2>Yayın güvencesi</h2>
+    <p>Magzter’a gönderilecek her sayı, FORTIAY’ın kaynak, görsel, ticari beyan ve düzeltme kurallarından geçer. Hazırlık durumu tamamlanmadan satış veya abonelik bağlantısı yayımlanmaz.</p>
+    <p><a href="/yayin-ilkeleri/">Yayın ilkelerini oku →</a></p>
+  </div>
+</Base>

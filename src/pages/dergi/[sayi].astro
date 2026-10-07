@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { SAYILAR } from '../../data/site';
+import { MAGZTER, SAYILAR } from '../../data/site';
 export function getStaticPaths() {
   return SAYILAR.map((s) => ({ params: { sayi: `sayi-${s.no}` }, props: { s } }));
 }
@@ -17,19 +17,20 @@ const kanallar = [
     <section class="sayi-ust">
       <img src={s.kapak} alt={`FORTIAY ${s.ad} kapağı`} width="300" />
       <div>
-        <span class="ust-etiket">{s.donem} · {s.sayfa} sayfa</span>
+        <span class="ust-etiket">{s.donem} · {s.sayfa} sayfa{s.fiyat ? ` · ${s.fiyat}` : ''}</span>
         <h1>FORTIAY {s.ad}</h1>
         <p>{s.ozet}</p>
         {s.ucretli ? (
           <div class="eylemler">
             {kanallar.length > 0
               ? kanallar.map((k, i) => <a class:list={['dugme', { ikincil: i > 0 }]} href={k.url} rel="noopener">{k.ad}</a>)
-              : <span class="dugme pasif">Satış bağlantısı yakında</span>}
+              : <a class="dugme" href="/magzter/">Magzter yayın durumu</a>}
           </div>
         ) : (
           <div class="eylemler">
             <a class="dugme" href={`/dergi/sayi-${s.no}/oku/`}>Ücretsiz oku</a>
             <a class="dugme ikincil" href={s.pdf} download>PDF'yi indir · {s.pdfBoyut}</a>
+            {!s.magzterHarici && MAGZTER.durum === 'yayinda' && MAGZTER.katalogUrl && <a class="dugme ikincil" href={MAGZTER.katalogUrl} rel="noopener">Magzter’da oku</a>}
           </div>
         )}
       </div>

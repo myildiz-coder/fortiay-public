@@ -25,12 +25,21 @@ export const DAMGALAR = {
   bul: { ad: 'BULUNAMADI', aciklama: 'Kaynağı olan bir veri bulunamadı.' },
 } as const;
 
+// Magzter kaydı onaylandığında katalogUrl alanını doldurmak yeterlidir.
+export const MAGZTER = {
+  durum: 'hazirlik' as 'hazirlik' | 'yayinda',
+  katalogUrl: '',
+  yayinBasvuruUrl: 'https://publishers.magzter.com/publisher-signup',
+  aciklama: 'FORTIAY’ın Magzter yayıncı başvurusu ve dağıtım dosyası hazırlanıyor.',
+};
+
 // Dergi sayıları. satinAl boş kalırsa düğme "Yakında" olarak görünür.
 export const SAYILAR = [
   {
     no: '02', ad: 'Sayı 02', donem: 'Ekim–Aralık 2026', sayfa: 104, ucretli: true,
     kapak: '/dergi/sayi-02/kapak.jpg',
     ozet: 'Aksesuar masası, ölçüm masası, Çin masası ve 18 Pro ailesinin anatomisi.',
+    fiyat: '500 TL',
     onizleme: [3, 9, 10, 11, 12, 26],
     satinAl: { magzter: '', dijital: '', basili: '' },
   },
@@ -38,7 +47,7 @@ export const SAYILAR = [
     no: '01', ad: 'Sayı 01', donem: 'Eylül 2026', sayfa: 94, ucretli: false,
     kapak: '/dergi/sayi-01/kapak.webp',
     ozet: 'Yeni Pro dönemi, iPhone Duo, Android amiral gemileri, fiyatın yarısı vergi.',
-    pdf: '/dergi/sayi-01/FORTIAY-Sayi01.pdf', pdfBoyut: '19,1 MB',
+    pdf: '/dergi/sayi-01/FORTIAY-Sayi01.pdf', pdfBoyut: '19,1 MB', magzterHarici: true,
   },
 ];
 
