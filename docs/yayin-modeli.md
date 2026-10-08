@@ -16,7 +16,7 @@ FORTIAY'ın ana ürünü yalnızca üç ayda bir çıkan PDF değildir. Site gü
 - Üç ayda bir yayımlanır
 - Günlük akışta oluşan veriyi dosya, tablo ve yöntem sayfalarında derinleştirir
 - Sayı 02'den itibaren Magzter'da ücretli dağıtılır
-- Tek sayı fiyatı 500 TL'dir
+- Tek sayı fiyatı 299 TL'dir
 
 ## Editoryal ölçü
 
