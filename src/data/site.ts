@@ -25,7 +25,8 @@ export const DAMGALAR = {
   bul: { ad: 'BULUNAMADI', aciklama: 'Kaynağı olan bir veri bulunamadı.' },
 } as const;
 
-// Magzter kaydı onaylandığında katalogUrl alanını doldurmak yeterlidir.
+// Magzter kaydı onaylandığında: durum 'yayinda', katalogUrl = yayın sayfası,
+// SAYILAR[0].satinAl.magzter = Sayı 02'nin sayfası. QR kodlar bu adreslerden otomatik üretilir.
 export const MAGZTER = {
   durum: 'hazirlik' as 'hazirlik' | 'yayinda',
   katalogUrl: '',

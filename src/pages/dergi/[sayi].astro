@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { MAGZTER, SAYILAR } from '../../data/site';
+import MagzterQR from '../../components/MagzterQR.astro';
 export function getStaticPaths() {
   return SAYILAR.map((s) => ({ params: { sayi: `sayi-${s.no}` }, props: { s } }));
 }
@@ -26,6 +27,7 @@ const kanallar = [
               ? kanallar.map((k, i) => <a class:list={['dugme', { ikincil: i > 0 }]} href={k.url} rel="noopener">{k.ad}</a>)
               : <a class="dugme" href="/magzter/">Magzter yayın durumu</a>}
           </div>
+          <MagzterQR url={sat.magzter} baslik={`${s.ad}’yi Magzter’da oku`} />
         ) : (
           <div class="eylemler">
             <a class="dugme" href={`/dergi/sayi-${s.no}/oku/`}>Ücretsiz oku</a>

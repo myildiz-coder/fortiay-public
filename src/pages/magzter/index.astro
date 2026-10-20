@@ -1,17 +1,20 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { MAGZTER, SAYILAR } from '../../data/site';
+import MagzterQR from '../../components/MagzterQR.astro';
 
 const sonSayi = SAYILAR[0];
+const yayinda = MAGZTER.durum === 'yayinda' && !!(sonSayi.satinAl?.magzter || MAGZTER.katalogUrl);
+const mzUrl = sonSayi.satinAl?.magzter || MAGZTER.katalogUrl;
 ---
 <Base title="Magzter" aciklama="FORTIAY'ın Magzter dijital dergi dağıtım durumu ve okuma seçenekleri.">
   <div class="metin">
     <span class="ust-etiket">Dijital dağıtım · Magzter</span>
-    <h1>FORTIAY, Magzter için hazırlanıyor.</h1>
+    <h1>{yayinda ? `FORTIAY ${sonSayi.ad} Magzter’da.` : 'FORTIAY, Magzter için hazırlanıyor.'}</h1>
     <p>{MAGZTER.aciklama}</p>
 
-    {MAGZTER.durum === 'yayinda' && MAGZTER.katalogUrl ? (
-      <p><a class="dugme" href={MAGZTER.katalogUrl} rel="noopener">FORTIAY’ı Magzter’da aç</a></p>
+    {yayinda ? (
+      <MagzterQR url={mzUrl} baslik={`${sonSayi.ad}’yi Magzter’da oku`} />
     ) : (
       <div class="bilgi-kutusu">
         <strong>Yayın durumu: hazırlık</strong>

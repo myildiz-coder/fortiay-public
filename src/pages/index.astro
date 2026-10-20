@@ -13,6 +13,7 @@ const kalan = haberler.filter((y) => y !== manset && !yan.includes(y)).slice(0, 
 const kose = yazilar.filter((y) => y.data.kanal === 'kose').slice(0, 3);
 const sayi = SAYILAR[0];
 const fiyatOzet = fiyat.segmentler.flatMap((s) => s.satirlar).slice(0, 6);
+import MagzterQR from '../components/MagzterQR.astro';
 ---
 <Base title="FORTIAY">
   <div class="sar">
@@ -48,9 +49,11 @@ const fiyatOzet = fiyat.segmentler.flatMap((s) => s.satirlar).slice(0, 6);
         <h2>FORTIAY {sayi.ad}</h2>
         <p>{sayi.ozet} {sayi.sayfa} sayfa.</p>
         <div class="eylemler">
-          <a class="dugme" href={`/dergi/sayi-${sayi.no}/`}>Sayıyı incele</a>
+          {sayi.satinAl?.magzter && <a class="dugme" href={sayi.satinAl.magzter} rel="noopener">Magzter’da oku</a>}
+          <a class:list={['dugme', { ikincil: !!sayi.satinAl?.magzter }]} href={`/dergi/sayi-${sayi.no}/`}>Sayıyı incele</a>
           <a class="dugme ikincil" href="/dergi/sayi-01/oku/">Sayı 01'i ücretsiz oku</a>
         </div>
+        <MagzterQR url={sayi.satinAl?.magzter} kucuk />
       </div>
     </div>
   </section>

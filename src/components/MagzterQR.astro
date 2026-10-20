@@ -1,0 +1,23 @@
+---
+// Magzter bağlantısı için QR + düğme. url boşsa hiçbir şey basmaz.
+import QRCode from 'qrcode';
+const { url, baslik = 'Magzter’da oku', kucuk = false } = Astro.props as { url?: string; baslik?: string; kucuk?: boolean };
+const svg = url ? await QRCode.toString(url, { type: 'svg', margin: 1, color: { dark: '#0B0B0D', light: '#FFFFFF' } }) : '';
+---
+{url && (
+  <div class:list={['mz-qr', { kucuk }]}>
+    <div class="mz-kod" set:html={svg} aria-label="Magzter QR kodu"></div>
+    <div>
+      <span class="ust-etiket">Telefonla okut</span>
+      <p class="mz-not">Kamerayı koda tutun, FORTIAY Magzter’da açılsın.</p>
+      <a class="dugme" href={url} rel="noopener">{baslik} →</a>
+    </div>
+  </div>
+)}
+<style>
+  .mz-qr{display:flex;gap:18px;align-items:center;margin-top:18px;padding:14px;border:1px solid rgba(127,127,127,.3);border-radius:10px;max-width:460px}
+  .mz-kod{width:132px;flex:0 0 132px;background:#fff;padding:6px;border-radius:6px}
+  .mz-kod :global(svg){display:block;width:100%;height:auto}
+  .mz-not{margin:4px 0 10px;font-size:.92rem}
+  .kucuk .mz-kod{width:96px;flex-basis:96px}
+</style>
