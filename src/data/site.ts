@@ -28,10 +28,10 @@ export const DAMGALAR = {
 // Magzter kaydı onaylandığında: durum 'yayinda', katalogUrl = yayın sayfası,
 // SAYILAR[0].satinAl.magzter = Sayı 02'nin sayfası. QR kodlar bu adreslerden otomatik üretilir.
 export const MAGZTER = {
-  durum: 'hazirlik' as 'hazirlik' | 'yayinda',
-  katalogUrl: '',
+  durum: 'yayinda' as 'hazirlik' | 'yayinda',
+  katalogUrl: 'https://www.magzter.com/TR/SONORA-TEKNOLOJI-LIMITED-SIRKETI/FORTIAY/Computer--Mobile/2559161',
   yayinBasvuruUrl: 'https://publishers.magzter.com/publisher-signup',
-  aciklama: 'FORTIAY’ın Magzter yayıncı başvurusu ve dağıtım dosyası hazırlanıyor.',
+  aciklama: 'FORTIAY Sayı 02, Magzter’da web, iOS ve Android üzerinden okunabiliyor.',
 };
 
 // Dergi sayıları. satinAl boş kalırsa düğme "Yakında" olarak görünür.
@@ -40,9 +40,9 @@ export const SAYILAR = [
     no: '02', ad: 'Sayı 02', donem: 'Ekim–Aralık 2026', sayfa: 100, ucretli: true,
     kapak: '/dergi/sayi-02/kapak.jpg',
     ozet: 'Aksesuar masası, ölçüm masası, Çin masası ve 18 Pro ailesinin anatomisi.',
-    fiyat: '299 TL',
+    fiyat: '98,65 TL (Magzter)',
     onizleme: [3, 9, 10, 11, 12, 26],
-    satinAl: { magzter: '', dijital: '', basili: '' },
+    satinAl: { magzter: 'https://www.magzter.com/TR/SONORA-TEKNOLOJI-LIMITED-SIRKETI/FORTIAY/Computer--Mobile/2559161', dijital: '', basili: '' },
   },
   {
     no: '01', ad: 'Sayı 01', donem: 'Eylül 2026', sayfa: 94, ucretli: false,
